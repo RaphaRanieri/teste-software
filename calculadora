@@ -1,0 +1,62 @@
+calculadora.cs
+
+using System;
+
+public class Calculadora
+{
+    public static double Calcular(double numero1, double numero2, int operacao)
+    {
+        double resultado = 0;
+
+        switch (operacao)
+        {
+            case 1: // Adição
+                resultado = numero1 + numero2;
+                break;
+            case 2: // Subtração
+                resultado = numero1 - numero2;
+                break;
+            case 3: // Multiplicação
+                resultado = numero1 * numero2;
+                break;
+            case 4: // Divisão
+                if (numero2 != 0)
+                {
+                    resultado = numero1 / numero2;
+                }
+                else
+                {
+                    Console.WriteLine("Erro: Divisão por zero.");
+                    return double.NaN;
+                }
+                break;
+            default:
+                Console.WriteLine("Escolha inválida.");
+                return double.NaN;
+        }
+
+        return resultado;
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Escolha uma operação:");
+        Console.WriteLine("1. Adição");
+        Console.WriteLine("2. Subtração");
+        Console.WriteLine("3. Multiplicação");
+        Console.WriteLine("4. Divisão");
+
+        int escolha = int.Parse(Console.ReadLine());
+
+        Console.Write("Digite o primeiro número: ");
+        double numero1 = double.Parse(Console.ReadLine());
+
+        Console.Write("Digite o segundo número: ");
+        double numero2 = double.Parse(Console.ReadLine());
+
+        double resultado = Calcular(numero1, numero2, escolha);
+
+        Console.WriteLine("Resultado: " + resultado);
+    }
+}
+

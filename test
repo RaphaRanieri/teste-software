@@ -1,0 +1,49 @@
+test.cs
+
+using NUnit.Framework;
+
+[TestFixture]
+public class CalculadoraTest
+{
+    [Test]
+    public void TestAdicao()
+    {
+        double resultado = Calculadora.Calcular(1, 2, 1); // 1 representa adição
+        Assert.AreEqual(3, resultado);
+    }
+
+    [Test]
+    public void TestSubtracao()
+    {
+        double resultado = Calculadora.Calcular(5, 3, 2); // 2 representa subtração
+        Assert.AreEqual(2, resultado);
+    }
+
+    [Test]
+    public void TestMultiplicacao()
+    {
+        double resultado = Calculadora.Calcular(4, 6, 3); // 3 representa multiplicação
+        Assert.AreEqual(24, resultado);
+    }
+
+    [Test]
+    public void TestDivisao()
+    {
+        double resultado = Calculadora.Calcular(10, 5, 4); // 4 representa divisão
+        Assert.AreEqual(2, resultado);
+    }
+
+    [Test]
+    public void TestDivisaoPorZero()
+    {
+        double resultado = Calculadora.Calcular(10, 0, 4); // Tenta dividir por zero
+        Assert.AreEqual(double.NaN, resultado);
+    }
+
+    [Test]
+    public void TestEscolhaInvalida()
+    {
+        double resultado = Calculadora.Calcular(10, 5, 6); // 6 é uma escolha inválida
+        Assert.AreEqual(double.NaN, resultado);
+    }
+}
